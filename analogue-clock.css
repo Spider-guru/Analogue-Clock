@@ -1,0 +1,119 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #f6f7fb;
+  --white-color: #fff;
+  --black-color: #18191a;
+  --red-color: #e74c3c;
+}
+
+body.dark {
+  --primary-color: #242526;
+  --white-color: #18191a;
+  --black-color: #fff;
+  --red-color: #e74c3c;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  background-color: var(--primary-color);
+  max-height: 100dvh;
+  width: 99%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.container .clock {
+  display: flex;
+  min-width: 400px;
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--white-color);
+  border-radius: 10%;
+  box-shadow: 0 10px 22px #0000005c, 0 2px 9px #afa8a838;
+  margin-top: 20px;
+}
+
+.clock label {
+  position: absolute;
+  inset: 20px;
+  text-align: center;
+  transform: rotate(calc(var(--i) * (360deg / 12)));
+}
+
+.clock label span {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 30px;
+  transform: rotate(calc(var(--i) * (-360deg / 12)));
+  color: var(--black-color);
+}
+
+.container .indicator {
+  /* background-color: #e74c3c; */
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  border-radius: 50%;
+  background-color: var(--black-color);
+  border: 4px solid var(--red-color);
+}
+
+.indicator .hand {
+  width: 4px;
+  height: 130px;
+  background-color: var(--red-color);
+  bottom: 0;
+  transform-origin: bottom;
+  position: absolute;
+  border-radius: 50px;
+}
+
+.indicator .hand.minute {
+  width: 5px;
+  height: 120px;
+  background: var(--black-color);
+}
+
+.indicator .hour.hand {
+  width: 8px;
+  height: 95px;
+  background-color: var(--black-color);
+}
+
+.modeToggle {
+  cursor: pointer;
+  background-color: var(--white-color);
+  padding: 17px 25px;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 5px;
+  color: var(--black-color);
+  box-shadow: 0 5px 10px #0000006c;
+}
+
